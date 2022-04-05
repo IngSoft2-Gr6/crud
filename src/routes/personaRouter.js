@@ -34,4 +34,35 @@ router
 		return res.json(persona);
 	});
 
+router
+	.route("/:id")
+	.patch(async (req, res) => {
+		const { id } = req.params;
+		const { cedula, nombre, telefono, edad, sexo, id_vivienda, cdf } = req.body;
+		// update the persona
+		const update = await db.models.persona.update(
+			{ cedula, nombre, telefono, edad, sexo, id_vivienda, cdf },
+			{ where: { id } }
+		);
+
+		// send the updated persona as JSON response
+		return res.json(update);
+	})
+	.delete(async (req, res) => {
+		const { id } = req.params;
+		// delete the persona
+		const deletePersona = await db.models.persona.destroy({
+			where: { id },
+		});
+		// send the deleted persona as JSON response
+		return res.json(deletePersona);
+	})
+	.get(async (req, res) => {
+		const { id } = req.params;
+		// get the persona
+		const persona = await db.models.persona.findOne({ where: { id } });
+		// send the persona as JSON response
+		return res.json(persona);
+	});
+
 module.exports = router;

@@ -4,13 +4,13 @@ const router = Router();
 
 // import all routes
 const municipioRoutes = require("./municipioRouter");
-const personaRoutes = require("./personaRouter");
-const viviendaRoutes = require("./viviendaRouter");
+// const viviendaRoutes = require("./viviendaRouter");
+// const personaRoutes = require("./personaRouter");
 
 // use all routes
 router.use("/municipio", municipioRoutes);
-router.use("/persona", personaRoutes);
-router.use("/vivienda", viviendaRoutes);
+// router.use("/vivienda", viviendaRoutes);
+// router.use("/persona", personaRoutes);
 
 // export router
 module.exports = router;

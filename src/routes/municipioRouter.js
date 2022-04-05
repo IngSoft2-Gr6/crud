@@ -3,7 +3,8 @@ const db = require("../config/db.config");
 const router = Router();
 
 router
-	.get("/", async (req, res) => {
+	.route("/")
+	.get(async (req, res) => {
 		let { page, limit } = req.query;
 		// get all the municipios
 
@@ -17,7 +18,7 @@ router
 		// send the municipios as JSON response
 		return res.json(municipios);
 	})
-	.post("/", async (req, res) => {
+	.post(async (req, res) => {
 		const { nombre, area, presupuesto } = req.body;
 		// create a new municipio
 		const municipio = await db.models.municipio.create({

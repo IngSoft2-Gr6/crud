@@ -27,7 +27,7 @@ app.use(
 );
 
 // routes
-app.use("api/v1", require("./routes/index"));
+app.use("/api/v1", require("./routes/index"));
 
 // start server
 const port = process.env.PORT || 5000;

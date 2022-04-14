@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
 				allowNull: false,
 			},
 			sexo: {
-				type: DataTypes.INTEGER,
+				type: DataTypes.STRING(40),
 				allowNull: true,
 			},
 			id_vivienda: {

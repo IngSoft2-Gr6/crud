@@ -1,7 +1,8 @@
 -- Engine: PostgreSQL 14
--- Date: 2014-12-31
+-- Date: 2022-04-13
 
 -- Drops
+DROP TABLE IF EXISTS persona_has_vivienda;
 DROP TABLE IF EXISTS persona;
 DROP TABLE IF EXISTS vivienda;
 DROP TABLE IF EXISTS municipio;
@@ -42,7 +43,7 @@ create table persona
     nombre      varchar(45) not null,
     telefono    integer,
     edad        integer     not null,
-    sexo        integer,
+    sexo        varchar(40),
     id_vivienda integer
         constraint persona_vivienda_id_fk
             references vivienda,
